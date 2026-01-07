@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Attendance</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 800px; margin: auto; padding: 20px; border: 1px solid #ccc; margin-top: 50px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align: center;">All Attendance Records</h2>
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    <br>
+    <a href="/dashboard">Back to Dashboard</a>
+</div>
+</body>
+</html>

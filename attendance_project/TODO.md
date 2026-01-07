@@ -1,0 +1,3 @@
+- [x] Update app.py login route to check username existence and set specific error messages
+- [x] Update login.html to display error messages
+- [x] Test login functionality with invalid username and invalid password

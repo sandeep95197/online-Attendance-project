@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mark Attendance</title>
+    <style>
+        body { font-family: Arial, sans-serif; 
+            background-image: url(/static/back.jpg);
+        }
+        .container { width: 600px; 
+            margin: auto;
+             padding: 20px; 
+             border: 2px solid #ccc; 
+             justify-items: center;
+             margin-top: 70px; }
+
+        form { margin-bottom: 20px; }
+        select, button { padding: 8px;
+             margin: 5px; }
+             h2{
+                font-size: 30px;
+                color: white;
+             }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 >Mark Attendance</h2>
+    <form method="POST">
+        {% if role == "teacher" %}
+        <label for="student_username" style="color: white;">Student:</label>
+        <select name="student_username" id="student_username" required>
+            {% for student in students %}
+            <option value="{{ student }}">{{ student }}</option>
+            {% endfor %}
+        </select>
+        {% endif %}
+        <label for="status" style="color: white;">Status:</label>
+        <select name="status" id="status" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Late">Late</option>
+        </select><br><br>
+        <button type="submit">Mark Attendance</button>
+    </form>
+    <a href="/dashboard" style="background-color: black; color: white;">Back to Dashboard</a>
+</div>
+</body>
+</html>
